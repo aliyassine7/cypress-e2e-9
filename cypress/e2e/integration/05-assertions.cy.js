@@ -347,6 +347,7 @@ describe("Assertions", () => {
         .should("have.text", dropdowns[index]);
     });
 
+
     /**
      * Test Case: Validate Dropdowns Functionality on TechGlobal Training Page
      * Go to https://techglobal-training.com/frontend
@@ -358,5 +359,7 @@ describe("Assertions", () => {
      * Validate result message displays "Your Green MacBook Pro 13 will be delivered to you."
      */
 
+
+    
   });
 });
