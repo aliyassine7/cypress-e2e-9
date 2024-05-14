@@ -22,6 +22,7 @@ describe("Handling iFrames", () => {
    */
   it.only("iFrame", () => {
     cy.get("#apple").invoke("removeAttr", "target").click();
+    // cy.contains('Apple').invoke('removeAttr', 'target').click()
 
     cy.title().should("eq", "Apple");
 
