@@ -44,10 +44,7 @@ describe("Custom Commands", () => {
     cy.log(Cypress.env('SITE_URL'))
     cy.log(Cypress.env('UI_USERNAME'))
     cy.log(Cypress.env('UI_PASSWORD'))
-
+    
     // expect(true).equal(false)
-
-
   })
-
 });
