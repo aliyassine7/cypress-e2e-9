@@ -43,6 +43,20 @@ Cypress.Commands.add("logText", { prevSubject: true }, (subject) => {
   return cy.wrap(subject);
 });
 
+
+Cypress.Commands.add(
+  "checkOptionAndValidateOthersNotChecked",
+  (optionToCheck, expectedTexts) => {
+    cy.contains(optionToCheck).find("input").check().should("be.checked");
+
+    expectedTexts
+      .filter((option) => option !== optionToCheck)
+      .forEach((uncheckOption) => {
+        cy.contains(uncheckOption).find("input").should("not.be.checked");
+      });
+  }
+);
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
@@ -50,6 +64,14 @@ Cypress.Commands.add("logText", { prevSubject: true }, (subject) => {
 Cypress.Commands.add('assertAttribute', {prevSubject: true}, (subject, attribute, value) => {
   cy.wrap(subject).should('have.attr', attribute, value)
 });
+
+// Cypress.Commands.add('assertAttribute', { prevSubject: 'element'}, (subject, attribute, value) => { 
+//   if(value === null) {
+//     cy.wrap(subject).should('have.attr', attribute)
+//   } else {
+//     cy.wrap(subject).should('have.attr', attribute, value)
+//   }
+// })
 
 //
 //

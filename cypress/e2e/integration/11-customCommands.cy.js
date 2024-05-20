@@ -1,6 +1,8 @@
+/// <reference types="cypress" />
+
 describe("Custom Commands", () => {
   beforeEach(() => {
-    cy.visit("https://www.techglobal-training.com/frontend/");
+    cy.visit(`${Cypress.env('SITE_URL')}/frontend`);
     cy.clickCard("Html Elements");
   });
 
@@ -34,6 +36,16 @@ describe("Custom Commands", () => {
 
 
     cy.get('#main_heading').logText().haveText('Html Elements')
+
+    console.log(process.env.UI_URL + 'my env')
+
+    cy.log(process.env.UI_USERNAME)
+
+    cy.log(Cypress.env('SITE_URL'))
+    cy.log(Cypress.env('UI_USERNAME'))
+    cy.log(Cypress.env('UI_PASSWORD'))
+
+    // expect(true).equal(false)
 
 
   })
