@@ -2,7 +2,6 @@
 
 describe("Custom Commands", () => {
   beforeEach(() => {
-    cy.visit(`${Cypress.env('SITE_URL')}/frontend`);
     cy.clickCard("Html Elements");
   });
 
@@ -44,7 +43,15 @@ describe("Custom Commands", () => {
     cy.log(Cypress.env('SITE_URL'))
     cy.log(Cypress.env('UI_USERNAME'))
     cy.log(Cypress.env('UI_PASSWORD'))
-    
+
     // expect(true).equal(false)
+
+
   })
+
+
+  it.only('qwe', () => {
+    cy.visit('http://127.0.0.1:5500/myRandom.html')
+  })
+
 });
