@@ -43,5 +43,9 @@ describe("Practice03 Wikipedia Home Page", () => {
     for(let i = 0; i <= 4; i++) {
       cy.get('.hlist').eq(i).find('a').should('have.length', numOfLangs[i])
     }
+
+  //   cy.get('.hlist>ul').each(($el, index) => {
+  //     cy.wrap($el).find('a').should('have.length', numOfLangs[index])
+  // })
   });
 });
