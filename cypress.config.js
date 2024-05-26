@@ -7,7 +7,15 @@ module.exports = defineConfig({
   chromeWebSecurity: false,
   defaultCommandTimeout: 4 * 1000,
   // retries: 2,
-
+  
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    charts: true,
+    reportPageTitle: 'custom-title',
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    saveAllAttempts: false,
+  },
   env : {
     SITE_URL: process.env.UI_URL,
     UI_USERNAME: process.env.UI_USERNAME,
@@ -17,7 +25,11 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      require('cypress-mochawesome-reporter/plugin')(on);
+      require('@cypress/grep/src/plugin')(config);
+      return config;
     },
     baseUrl: 'https://techglobal-training.com',
+    video: true
   },
 });
