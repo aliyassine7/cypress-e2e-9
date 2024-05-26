@@ -1,16 +1,16 @@
 /// <reference types="cypress" />
-import TablesPage from "../../pages/TablesPage";
+import TablesPage from '../../pages/TablesPage'
 
-const tablesPage = new TablesPage();
+const tablesPage = new TablesPage()
 
 describe('Static Tables', () => {
   beforeEach(() => {
-    cy.clickCard("Tables");
+    cy.clickCard('Tables')
 
     cy.fixture('example').then(function(data) {
-      this.headers = data.headers;
+      this.headers = data.headers
     })
-  });
+  })
 
   /**
    * Test Case
@@ -25,7 +25,7 @@ describe('Static Tables', () => {
    */
   it('Verify the headers of the table', {tags: ['@table']}, () => {
     tablesPage.getCompanyTableHeaders().each(function($el, index) {
-      cy.wrap($el).should('have.text', this.headers[index]);
-    });
-  });
+      cy.wrap($el).should('have.text', this.headers[index])
+    })
+  })
 })

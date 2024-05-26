@@ -1,23 +1,23 @@
-import BasePage from "./BasePage";
+import BasePage from './BasePage'
 
 class TablesPage extends BasePage {
 
   /* Locators */
 
   getCompanyTableHeaders() {
-    return cy.get(".header")
+    return cy.get('.header')
   }
 
   getPasswordField() {
-    return cy.get("#password");
+    return cy.get('#password')
   }
 
   getSubmitButton() {
-    return cy.get("#login_btn");
+    return cy.get('#login_btn')
   }
 
   getSuccessMessage() {
-    return cy.get("#success_lgn");
+    return cy.get('#success_lgn')
   }
 
   getErrorMessage() {
@@ -26,15 +26,15 @@ class TablesPage extends BasePage {
 
   /* Methods */
   clickLoginButton(){
-    this.getSubmitButton().click();
+    this.getSubmitButton().click()
   }
 
   userLogin(username, password) {
-    this.getUsernameField().type(username);
-    this.getPasswordField().type(password);
+    this.getUsernameField().type(username)
+    this.getPasswordField().type(password)
     this.clickLoginButton()
   }
 }
 
 // ES6
-export default TablesPage;
+export default TablesPage

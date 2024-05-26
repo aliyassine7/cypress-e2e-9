@@ -1,31 +1,31 @@
 /// <reference types="cypress" />
 
-describe("Keyboard & Mouse Actions", () => {
+describe('Keyboard & Mouse Actions', () => {
   beforeEach(() => {
-    cy.clickCard("Actions");
-  });
+    cy.clickCard('Actions')
+  })
 
-  it("Mouse Actions using Cypress events", () => {
-    cy.get("#dropdown-button").trigger("mouseover");
+  it('Mouse Actions using Cypress events', () => {
+    cy.get('#dropdown-button').trigger('mouseover')
 
-    cy.get("#dropdown-button").realHover();
-  });
+    cy.get('#dropdown-button').realHover()
+  })
 
-  it("Keyboard Actions", () => {
-    cy.visit("https://www.techglobal-training.com/frontend/");
-    cy.clickCard("Html Elements");
+  it('Keyboard Actions', () => {
+    cy.visit('https://www.techglobal-training.com/frontend/')
+    cy.clickCard('Html Elements')
 
-    cy.get("#text_input1")
+    cy.get('#text_input1')
       .realClick()
-      .realPress("KeyA")
-      .realPress("Tab")
-      .realPress("KeyB")
-      .realPress("ArrowLeft")
-      .realPress("KeyR")
-      .realPress("ArrowRight")
-      .realPress("Backspace")
-      .realPress(["Alt", "KeyA"]);
-  });
+      .realPress('KeyA')
+      .realPress('Tab')
+      .realPress('KeyB')
+      .realPress('ArrowLeft')
+      .realPress('KeyR')
+      .realPress('ArrowRight')
+      .realPress('Backspace')
+      .realPress(['Alt', 'KeyA'])
+  })
 
   /**
    * Go to https://techglobal-training.com/frontend/
@@ -40,23 +40,23 @@ describe("Keyboard & Mouse Actions", () => {
    * Verify that the message appears next to the element stating, "You double-clicked on a button!"
    */
 
-  it.only("Right Click, and Double Click", () => {
-    cy.visit("https://www.techglobal-training.com/frontend/");
-    cy.clickCard("Actions");
+  it.only('Right Click, and Double Click', () => {
+    cy.visit('https://www.techglobal-training.com/frontend/')
+    cy.clickCard('Actions')
     
-    cy.url().should('eq', 'https://www.techglobal-training.com/frontend/actions');
+    cy.url().should('eq', 'https://www.techglobal-training.com/frontend/actions')
 
-    cy.get('#click').should('be.visible').and('have.text', 'Click on me').realClick();
-    cy.get('#click_result').should('have.text', 'You clicked on a button!');
+    cy.get('#click').should('be.visible').and('have.text', 'Click on me').realClick()
+    cy.get('#click_result').should('have.text', 'You clicked on a button!')
 
-    cy.get('#right-click').should('be.visible').and('have.text', 'Right-Click on me').rightclick();
-    cy.get('#right_click_result').should('have.text', "You right-clicked on a button!");
+    cy.get('#right-click').should('be.visible').and('have.text', 'Right-Click on me').rightclick()
+    cy.get('#right_click_result').should('have.text', 'You right-clicked on a button!')
 
-    cy.get('#double-click').dblclick().should('be.visible').and('have.text', 'Double-Click on me');
-    cy.get('#double_click_result').should('have.text', "You double-clicked on a button!");
-  });
+    cy.get('#double-click').dblclick().should('be.visible').and('have.text', 'Double-Click on me')
+    cy.get('#double_click_result').should('have.text', 'You double-clicked on a button!')
+  })
 
-  it("Right Click, and Double Click", () => {
+  it('Right Click, and Double Click', () => {
 
     cy.get('[id$="click"]').as('buttons')
 
@@ -68,12 +68,12 @@ describe("Keyboard & Mouse Actions", () => {
     })
 
     cy.get('@buttons').first().should('have.text', 'Click on me').click()
-    .next().should('have.text', 'You clicked on a button!')
+      .next().should('have.text', 'You clicked on a button!')
 
     cy.get('@buttons').eq(1).should('have.text', 'Right-Click on me').rightclick()
-    .next().should('have.text', 'You right-clicked on a button!')
+      .next().should('have.text', 'You right-clicked on a button!')
 
     cy.get('@buttons').last().should('have.text', 'Double-Click on me').dblclick()
-    .next().should('have.text', 'You double-clicked on a button!')
-  });
-});
+      .next().should('have.text', 'You double-clicked on a button!')
+  })
+})

@@ -1,38 +1,38 @@
-describe("Handling iFrames", () => {
+describe('Handling iFrames', () => {
   beforeEach(() => {
-    cy.contains(".cards", "IFrames").click();
-  });
+    cy.contains('.cards', 'IFrames').click()
+  })
 
-  it("iFrame", () => {
-    cy.get("#form_frame")
-      .its("0.contentDocument.body")
-      .should("not.be.empty")
-      .find("#first_name")
-      .type("Ali");
+  it('iFrame', () => {
+    cy.get('#form_frame')
+      .its('0.contentDocument.body')
+      .should('not.be.empty')
+      .find('#first_name')
+      .type('Ali')
 
-    cy.get("#form_frame")
-      .its("0.contentDocument.body")
-      .find("#last_name")
-      .type("Yassine");
+    cy.get('#form_frame')
+      .its('0.contentDocument.body')
+      .find('#last_name')
+      .type('Yassine')
 
-    cy.get("#form_frame").its("0.contentDocument.body").find("#submit").click();
-  });
+    cy.get('#form_frame').its('0.contentDocument.body').find('#submit').click()
+  })
 
-  it("iFrame", () => {
+  it('iFrame', () => {
     // cy.get('#form_frame')
     // .its('0.contentDocument.body')
     // .should('not.be.empty')
     // .find('#first_name').type('MyName')
 
-    const arr = ["tech", "global"];
+    const arr = ['tech', 'global']
 
-    cy.get("#form_frame")
-      .its("0.contentDocument.body")
-      .find("#first_name, #last_name")
+    cy.get('#form_frame')
+      .its('0.contentDocument.body')
+      .find('#first_name, #last_name')
       .each(($el, index) => {
-        cy.wrap($el).type(arr[index]);
-      });
-  });
+        cy.wrap($el).type(arr[index])
+      })
+  })
 
   /**
    * Go to https://techglobal-training.com/frontend/
@@ -43,21 +43,21 @@ describe("Handling iFrames", () => {
    * Validate the result equals "You entered: John Doe"
    */
 
-  const name = ["John", "Doe"];
+  const name = ['John', 'Doe']
 
-  const result = `You entered: ${name[0]} ${name[1]}`;
+  const result = `You entered: ${name[0]} ${name[1]}`
 
-  it.only("iFrame Test Case", () => {
-    cy.get("#form_frame")
-      .its("0.contentDocument.body")
-      .find("#first_name, #last_name")
+  it.only('iFrame Test Case', () => {
+    cy.get('#form_frame')
+      .its('0.contentDocument.body')
+      .find('#first_name, #last_name')
       .each(($el, index) => {
-        cy.wrap($el).type(name[index]);
-      });
+        cy.wrap($el).type(name[index])
+      })
 
-    cy.get("#form_frame").its("0.contentDocument.body").find("#submit").click();
+    cy.get('#form_frame').its('0.contentDocument.body').find('#submit').click()
 
-    cy.get("#result").should("have.text", result);
+    cy.get('#result').should('have.text', result)
     // cy.get('#result').should('have.text', `You entered: ${name.join(' ')}`)
-  });
-});
+  })
+})
