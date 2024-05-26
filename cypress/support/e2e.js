@@ -20,12 +20,11 @@ import '@4tw/cypress-drag-drop'
 import 'cypress-mochawesome-reporter/register';
 const { exec } = require('child_process');
 
-const registerCypressGrep = require('@cypress/grep')
-registerCypressGrep()
-
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+const registerCypressGrep = require('@cypress/grep')
+registerCypressGrep()
 
 // before(() => {
 //   exec('npm run build')

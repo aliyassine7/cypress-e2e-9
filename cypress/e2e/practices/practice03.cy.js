@@ -2,7 +2,7 @@ beforeEach(() => {
   cy.visit("https://www.wikipedia.org/");
 });
 
-describe("Practice03 Wikipedia Home Page", {tags:["WikiTag"]}, () => {
+describe("Practice03 Wikipedia Home Page", () => {
   it("TASK-1: Validate the Wikipedia Logo and Slogan", () => {
     // 2. Validate that the logo is displayed, and its text is "Wikipedia"
     // 3.	Validate that the slogan is displayed, and its text is "The Free Encyclopedia"
