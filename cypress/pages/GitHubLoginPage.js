@@ -13,8 +13,16 @@ class GitHubLoginPage  {
     return cy.get('label')
   }
 
-  getInputFields() {
+  getUsernameAndPasswordInputFields() {
     return cy.get('#login_field, #password')
+  }
+
+  getUsernameOrEmailAdressInputField() {
+    return cy.get('#login_field')
+  }
+
+  getPasswordInputField() {
+    return cy.get('#password')
   }
 
   getForgotPasswordLink() {
@@ -33,8 +41,12 @@ class GitHubLoginPage  {
     return cy.get('.js-sign-in-button')
   }
 
-  getFooterInfo() {
+  getFooterLinks() {
     return cy.get('.Link--secondary')
+  }
+
+  getErrorMessage() {
+    return cy.get('.js-flash-alert')
   }
 
   /* Methods */
@@ -42,9 +54,9 @@ class GitHubLoginPage  {
     this.getSignInButton().click()  
   }
 
-  userLogin(username, password) {
-    this.getInputFields[0].type(username)
-    this.getInputFields[1].type(password)
+  signIn(username, password) {
+    this.getUsernameOrEmailAdressInputField().type(username)
+    this.getPasswordInputField().type(password)
   }
 }
 
