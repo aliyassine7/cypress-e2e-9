@@ -29,17 +29,17 @@ describe("Static Tables", () => {
   });
 
   it("TASK-3: Validate the GitHub Login Page Sign in Form", () => {
+    const labels = ["Username or email address", "Password"];
+    
     gitHubHomePage.clickSignInButton();
     gitHubLoginPage.getHeaderLogo().should("be.visible");
     gitHubLoginPage.getFormHeader().should("contain", "Sign in to GitHub");
-
-    const labels = ["Username or email address", "Password"];
 
     gitHubLoginPage.getInputLabels().each(($el, index) => {
       cy.wrap($el).should("contain", labels[index]);
     });
 
-    gitHubLoginPage.getInputFields().should("be.visible").and("be.enabled");
+    gitHubLoginPage.getUsernameAndPasswordInputFields().should("be.visible").and("be.enabled");
     gitHubLoginPage
       .getForgotPasswordLink()
       .should("have.text", "Forgot password?");
@@ -65,20 +65,22 @@ describe("Static Tables", () => {
       "Manage cookies",
       "Do not share my personal information",
     ];
-    
+
     gitHubHomePage.clickSignInButton();
-    
-    gitHubLoginPage.getFooterLinks().should('have.length', footerLinks.length)
+
+    gitHubLoginPage.getFooterLinks().should("have.length", footerLinks.length);
 
     gitHubLoginPage.getFooterLinks().each(($el, index) => {
       cy.wrap($el).should("contain", footerLinks[index]);
     });
   });
 
-  it('TASK-5: Validate the GitHub Login Page Invalid Login Attempt ', () => {
-    gitHubHomePage.clickSignInButton()
-    gitHubLoginPage.signIn('johndoe', 'test1234')
-    gitHubLoginPage.clickSignInButton()
-    gitHubLoginPage.getErrorMessage().should('include.text', 'Incorrect username or password.')
-  })
+  it("TASK-5: Validate the GitHub Login Page Invalid Login Attempt ", () => {
+    gitHubHomePage.clickSignInButton();
+    gitHubLoginPage.signIn("johndoe", "test1234");
+    gitHubLoginPage.clickSignInButton();
+    gitHubLoginPage
+      .getErrorMessage()
+      .should("include.text", "Incorrect username or password.");
+  });
 });
